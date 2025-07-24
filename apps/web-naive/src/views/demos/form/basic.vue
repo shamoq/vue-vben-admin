@@ -7,6 +7,7 @@ import { useVbenForm } from '#/adapter/form';
 import { getAllMenusApi } from '#/api';
 
 import modalDemo from './modal.vue';
+import { router } from '#/router';
 
 const message = useMessage();
 const [Form, formApi] = useVbenForm({
@@ -146,6 +147,10 @@ function setFormValues() {
   });
 }
 
+function handleOpenNoMenuPage(){
+  router.push({path: '/demos/form/blank'})
+}
+
 const [Modal, modalApi] = useVbenModal({
   connectedComponent: modalDemo,
 });
@@ -160,6 +165,9 @@ const [Modal, modalApi] = useVbenModal({
         <NButton type="primary" @click="setFormValues">设置表单值</NButton>
         <NButton type="primary" @click="modalApi.open()" class="ml-2">
           打开弹窗
+        </NButton>
+        <NButton type="primary" @click="handleOpenNoMenuPage" class="ml-2">
+          打开没有菜单的页面
         </NButton>
       </template>
       <Form />

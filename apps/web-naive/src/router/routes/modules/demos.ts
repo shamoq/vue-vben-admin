@@ -37,6 +37,15 @@ const routes: RouteRecordRaw[] = [
         path: '/demos/form',
         component: () => import('#/views/demos/form/basic.vue'),
       },
+      {
+        meta: {
+          title: '没有激活的菜单',
+          hideInMenu: true,
+        },
+        name: 'blankForm',
+        path: '/demos/form/blank',
+        component: () => import('#/views/demos/form/blank.vue'),
+      },
     ],
   },
 ];
